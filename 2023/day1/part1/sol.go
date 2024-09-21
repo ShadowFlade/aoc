@@ -22,7 +22,6 @@ func main() {
 
 		for _, char := range lines[i] {
 			num, err := strconv.ParseInt(string(char), 10, 0) // base 10, auto-detect bit size
-			fmt.Println(num, err, " num err")
 			if err == nil {
 				numbers = append(numbers, num)
 			}
@@ -36,9 +35,10 @@ func main() {
 		for _, valNum := range numbers {
 			newNumber += strconv.FormatInt(valNum, 10)
 		}
-		fmt.Println(newNumber, " new nubjer")
+
+		newNumber = newNumber[0:1] + newNumber[len(newNumber)-1:]
 		newNumberInt, err := strconv.Atoi(newNumber)
-		fmt.Println(newNumberInt, " new number int")
+
 		if err != nil {
 			panic("are you that dumb?")
 		}
